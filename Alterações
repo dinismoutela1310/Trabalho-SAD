@@ -1,0 +1,2 @@
+O que alterei: no bloco Pedido2 acrescentei em On exit isto: agent.tempoRecolhaTotal = agent.DelayRecolha; que faltava e existia no Pedido1. 
+Fiz o statechart no agent Carro, com vários estados ligados por transições de mensagem e nos blocos do main coloquei por exemplo agent.statechart.receiveMessage("pedir") no On enter delay do Pedido1. Segundo o claude, nesta fase só serve de base para o comportamento dos carros, e a seguir podemos acrescentar paciência, avarias e perfis de condutor.
