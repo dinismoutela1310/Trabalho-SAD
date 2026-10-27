@@ -27,3 +27,7 @@ Recolha e visualização dos KPI:
 - Lead Time
 - Average Queue Length per Stage
 - Average Waiting Time per Stage
+
+Versão 1.5
+27/10/26 18h
+Gráfico de Clientes perdidos: Criei variável nChegadas, nBalking e nServidos. A %Blaking mostra os carros que nem chegam a entrar no restaurante e vão embora assim que veem a fila cheia à entrada, o Throughput mede a velocidade real a que a equipa entrega os pedidos. O objetivo é quando o Throughput bate no teto e não consegue andar mais rápido, a fila acumula logo e a curva do Balking dispara. É este gráfico que vai mostrar a quantidade de clientes que estamos a perder nas horas de ponta.
