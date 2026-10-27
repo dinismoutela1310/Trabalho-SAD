@@ -19,3 +19,11 @@ Statecharts com mensagens completos
 Mudança da cor de um retângulo no tejadilho do carro de acordo com o estado (não é possível mudar a cor do carro)
 Colocação de 3 lugares específicos na Waiting Bay
 Fecho do ciclo com os carros a terminar na estrada
+
+Versão 1.4
+27/10/26 14:59
+Implementação dos blocos de restrictedAreaStart e restrictedAreaEnd em cada um dos postos para evitar o erro do Anylogic tentar "empurrar" entidades para postos que já estavam na capacidade máxima de utilização/fila de espera
+Recolha e visualização dos KPI:
+- Lead Time
+- Average Queue Length per Stage
+- Average Waiting Time per Stage
