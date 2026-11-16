@@ -35,3 +35,7 @@ Gráfico de Clientes perdidos: Criei variável nChegadas, nBalking e nServidos. 
 Versão 1.6
 15/11/26 23h
 Waiting Time total: criada a Statistics discreta filaTotalTempo, alimentada no On enter do SaídaCarros com a soma esperaPedido + esperaPagamento + esperaRecolha, para comparar com as três esperas por estágio. Corrigido o seizePagamento, que não tinha pool associado, e passa a usar FuncionariosPagamento (necessário para a utilização do pagamento). Utilização: a utilização dos postos é lida dos três pools de funcionários (FuncionariosPedido, FuncionariosPagamento, FuncionariosRecolha) com utilization(), e mede a ocupação do staff, que coincide com a da janela enquanto houver um funcionário por posto. Warm-up: criado o parâmetro tWarmup e o evento eventoWarmup, que faz reset das estatísticas de fila e espera, do lead time, da utilização dos pools e dos contadores nChegadas, nBalking e nServidos, para que as médias só contem o período estável. Decisão de âmbito: o reneging (KPI 6 e pergunta 6 da proposta) fica de fora, porque a pista é FIFO e quem entra não consegue sair; a perda de clientes é medida só pelo balking. Removida a variável nReneging.
+
+Versão 1.7
+16/11/26 12h45
+Definição das distribuições para os tempos de espera/taxa de chegadas. Correção de pequeno erro no WarmUp (a função statsUtilization.reset() não existia nas pools, substituí por resetStats()).
