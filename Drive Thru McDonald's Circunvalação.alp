@@ -120,6 +120,51 @@
 			</ScaleRuler>
 			<CurrentLevel>1792839571314</CurrentLevel>
 			<Variables>
+				<Variable Class="PlainVariable">
+					<Id>1793121838698</Id>
+					<Name><![CDATA[nChegadas]]></Name>
+					<X>700</X><Y>540</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[int]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1793121868313</Id>
+					<Name><![CDATA[nBalking]]></Name>
+					<X>700</X><Y>560</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[int]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1793121875032</Id>
+					<Name><![CDATA[nServidos]]></Name>
+					<X>700</X><Y>580</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[int]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
 				<Variable Class="Parameter">
 					<Id>1792841629843</Id>
 					<Name><![CDATA[CapacidadeFilaPedido1]]></Name>
@@ -233,6 +278,31 @@
 						</DefaultValue>
 						<ParameterEditor>
 							<Id>1792841664401</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1794784554906</Id>
+					<Name><![CDATA[tWarmup]]></Name>
+					<X>20</X><Y>20</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[double]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<UnitOfValue Class="TimeUnits"><![CDATA[SECOND]]></UnitOfValue>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[3600]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1794784554904</Id>
 							<EditorContolType>TEXT_BOX</EditorContolType>
 							<MinSliderValue><![CDATA[0]]></MinSliderValue>
 							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
@@ -443,7 +513,7 @@
 				<Connector>
 					<Id>1792848719354</Id>
 					<Name><![CDATA[connector21]]></Name>
-					<X>360</X><Y>240</Y>
+					<X>350</X><Y>280</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -470,7 +540,7 @@
 					</TargetConnectableItemReference>
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>40</X><Y>-10</Y></Point>
+						<Point><X>50</X><Y>-50</Y></Point>
 					</Points>
 				</Connector>
 				<Connector>
@@ -542,7 +612,7 @@
 				<Connector>
 					<Id>1793033098090</Id>
 					<Name><![CDATA[connector25]]></Name>
-					<X>40</X><Y>0</Y>
+					<X>280</X><Y>280</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -568,8 +638,8 @@
 						<ItemName><![CDATA[in]]></ItemName>
 					</TargetConnectableItemReference>
 					<Points>
-						<Point><X>240</X><Y>280</Y></Point>
-						<Point><X>280</X><Y>240</Y></Point>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>30</X><Y>0</Y></Point>
 					</Points>
 				</Connector>
 				<Connector>
@@ -1830,6 +1900,58 @@
 					</Points>
 				</Connector>
 			</Connectors>
+			<Events>
+				<Event>
+					<Id>1794784728533</Id>
+					<Name><![CDATA[eventoWarmup]]></Name>
+					<X>20</X><Y>60</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties TriggerType="timeout" Mode="occuresOnce">
+						<Timeout Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+						</Timeout>
+						<Rate Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="RateUnits"><![CDATA[PER_SECOND]]></Unit>
+						</Rate>
+						<Id>1794784728531</Id>
+						<OccurrenceAtTime>true</OccurrenceAtTime>
+						<OccurrenceDate>1794816000000</OccurrenceDate>
+						<OccurrenceTime Class="CodeUnitValue">
+							<Code><![CDATA[tWarmup]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+						</OccurrenceTime>
+						<RecurrenceCode Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+						</RecurrenceCode>
+						<Condition><![CDATA[false]]></Condition>
+					</Properties>
+					<Action><![CDATA[// Estatísticas de fila
+filaPedidosStats.reset();
+filaPagamentoStats.reset();
+filaRecolhaStats.reset();
+filaPedidosTempo.reset();
+filaPagamentoTempo.reset();
+filaRecolhaTempo.reset();
+filaTotalTempo.reset();
+
+//Lead time
+dadosLeadTime.reset();
+
+// Utilização dos funcionários
+FuncionariosPedido.resetStats();
+FuncionariosPagamento.resetStats();
+FuncionariosRecolha.resetStats();
+
+// Contadores
+nChegadas = 0;  nBalking = 0;  nServidos = 0;]]></Action>
+				</Event>
+			</Events>
 			<Functions>
 				<Function AccessType="default" StaticFunction="false">
 					<ReturnModificator>RETURNS_VALUE</ReturnModificator>
@@ -2099,6 +2221,30 @@ return 1.0 / (1.0 + Math.exp(-z));
 					</RecurrenceProperties>
 					<Discrete>true</Discrete>
 				</Statistics>
+    			<Statistics>
+					<Id>1794783827896</Id>
+					<Name><![CDATA[filaTotalTempo]]></Name>
+					<X>820</X><Y>540</Y>
+					<Label><X>15</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<AutoUpdate>true</AutoUpdate>
+					<RecurrenceProperties>
+						<Id>1794783827894</Id>
+						<OccurrenceAtTime>true</OccurrenceAtTime>
+						<OccurrenceDate>1794816000000</OccurrenceDate>
+						<OccurrenceTime Class="CodeUnitValue">
+							<Code><![CDATA[0]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+						</OccurrenceTime>
+						<RecurrenceCode Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+						</RecurrenceCode>
+					</RecurrenceProperties>
+					<Discrete>true</Discrete>
+				</Statistics>
 			</AnalysisData>
 
 			<EmbeddedObjects>
@@ -2138,7 +2284,7 @@ return 1.0 / (1.0 + Math.exp(-z));
 						<Parameter>
 							<Name><![CDATA[interarrivalTime]]></Name>
 							<Value Class="CodeUnitValue">
-								<Code><![CDATA[triangular(5, 45, 180)]]></Code>
+								<Code><![CDATA[3 + exponential(79.4)]]></Code>
 								<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
 							</Value>
 						</Parameter>
@@ -2314,6 +2460,9 @@ return 1.0 / (1.0 + Math.exp(-z));
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onExit]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[nChegadas++;]]></Code>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onDiscard]]></Name>
@@ -2390,6 +2539,9 @@ return 1.0 / (1.0 + Math.exp(-z));
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onExitTrue]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[nBalking++;]]></Code>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onExitFalse]]></Name>
@@ -3874,7 +4026,9 @@ filaRecolhaTempo.add(agent.esperaRecolha);]]></Code>
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[agent.statechart.receiveMessage("sair");]]></Code>
+								<Code><![CDATA[agent.statechart.receiveMessage("sair");
+nServidos++;
+filaTotalTempo.add(agent.esperaPedido + agent.esperaPagamento + agent.esperaRecolha);]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -3909,7 +4063,7 @@ filaRecolhaTempo.add(agent.esperaRecolha);]]></Code>
 				<EmbeddedObject>
 					<Id>1792841463822</Id>
 					<Name><![CDATA[queueAntesPedidos]]></Name>
-					<X>320</X><Y>220</Y>
+					<X>310</X><Y>260</Y>
 					<Label><X>-5</X><Y>-10</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3950,6 +4104,10 @@ filaRecolhaTempo.add(agent.esperaRecolha);]]></Code>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[timeout]]></Name>
+							<Value Class="CodeUnitValue">
+								<Code><![CDATA[agent.paciencia]]></Code>
+								<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[enablePreemption]]></Name>
@@ -6750,6 +6908,10 @@ filaPedidosTempo.add(agent.esperaPedido);]]></Code>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[timeout]]></Name>
+							<Value Class="CodeUnitValue">
+								<Code><![CDATA[]]></Code>
+								<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[enablePreemption]]></Name>
@@ -7340,6 +7502,11 @@ filaPedidosTempo.add(agent.esperaPedido);]]></Code>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[resourceSets]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[{ 
+  { FuncionariosPagamento }
+}]]></Code>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[resourcePool]]></Name>
@@ -9047,7 +9214,7 @@ filaPagamentoTempo.add(agent.esperaPagamento);]]></Code>
 						<XOffset>50</XOffset>
 						<YOffset>30</YOffset>
 						<Width>180</Width>
-						<Height>120</Height>
+						<Height>110</Height>
 						<BackgroundColor>-1</BackgroundColor>
 						<BorderColor>-16777216</BorderColor>
 						<GridColor>-12566464</GridColor>
@@ -9055,7 +9222,7 @@ filaPagamentoTempo.add(agent.esperaPagamento);]]></Code>
 					<Legend>
 						<Place>SOUTH</Place>
 						<TextColor>-16777216</TextColor>
-						<Size>30</Size>
+						<Size>40</Size>
 					</Legend>
 					<Labels>
 						<HorLabelsPosition>DEFAULT</HorLabelsPosition>
@@ -9126,76 +9293,10 @@ filaPagamentoTempo.add(agent.esperaPagamento);]]></Code>
 					</Font>
 					<Alignment>LEFT</Alignment>
 				</Text>
-				<Text>
-					<Id>1793111461181</Id>
-					<Name><![CDATA[FilaPedidosMedia]]></Name>
-					<X>1560</X><Y>670</Y>
-					<Label><X>0</X><Y>-10</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D</DrawMode>
-					<EmbeddedIcon>false</EmbeddedIcon>
-					<Z>0</Z>
-					<Rotation>0.0</Rotation>
-					<Color>-16777216</Color>
-					<Text><![CDATA[Pedidos: ]]></Text>
-					<TextCode><![CDATA["Pedidos: " + format(filaPedidosStats.mean())]]></TextCode>
-					<Font>
-						<Name>SansSerif</Name>
-						<Size>10</Size>
-						<Style>0</Style>
-					</Font>
-					<Alignment>LEFT</Alignment>
-				</Text>
-				<Text>
-					<Id>1793111490765</Id>
-					<Name><![CDATA[FilaPedidosMedia1]]></Name>
-					<X>1560</X><Y>690</Y>
-					<Label><X>0</X><Y>-10</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D</DrawMode>
-					<EmbeddedIcon>false</EmbeddedIcon>
-					<Z>0</Z>
-					<Rotation>0.0</Rotation>
-					<Color>-16777216</Color>
-					<Text><![CDATA[Pagamento: ]]></Text>
-					<TextCode><![CDATA["Pagamento: " + format(filaPagamentoStats.mean())]]></TextCode>
-					<Font>
-						<Name>SansSerif</Name>
-						<Size>10</Size>
-						<Style>0</Style>
-					</Font>
-					<Alignment>LEFT</Alignment>
-				</Text>
-				<Text>
-					<Id>1793111503068</Id>
-					<Name><![CDATA[FilaPedidosMedia2]]></Name>
-					<X>1560</X><Y>710</Y>
-					<Label><X>0</X><Y>-10</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D</DrawMode>
-					<EmbeddedIcon>false</EmbeddedIcon>
-					<Z>0</Z>
-					<Rotation>0.0</Rotation>
-					<Color>-16777216</Color>
-					<Text><![CDATA[Recolha:]]></Text>
-					<TextCode><![CDATA["Recolha: " + format(filaRecolhaStats.mean())]]></TextCode>
-					<Font>
-						<Name>SansSerif</Name>
-						<Size>10</Size>
-						<Style>0</Style>
-					</Font>
-					<Alignment>LEFT</Alignment>
-				</Text>
     			<StackChart>
 					<Id>1793111989693</Id>
 					<Name><![CDATA[TemposMediosEmFilaDeEspera]]></Name>
-					<X>1560</X><Y>730</Y>
+					<X>1520</X><Y>640</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -9217,14 +9318,14 @@ filaPagamentoTempo.add(agent.esperaPagamento);]]></Code>
 					</RecurrenceProperties>
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Width>260</Width>
-					<Height>210</Height>
+					<Height>250</Height>
 					<BackgroundColor/>
 					<BorderColor/>
 					<ChartArea>
 						<XOffset>50</XOffset>
 						<YOffset>30</YOffset>
 						<Width>180</Width>
-						<Height>120</Height>
+						<Height>130</Height>
 						<BackgroundColor>-1</BackgroundColor>
 						<BorderColor>-16777216</BorderColor>
 						<GridColor>-12566464</GridColor>
@@ -9232,7 +9333,7 @@ filaPagamentoTempo.add(agent.esperaPagamento);]]></Code>
 					<Legend>
 						<Place>SOUTH</Place>
 						<TextColor>-16777216</TextColor>
-						<Size>30</Size>
+						<Size>60</Size>
 					</Legend>
 					<Labels>
 						<HorLabelsPosition>DEFAULT</HorLabelsPosition>
@@ -9265,6 +9366,256 @@ filaPagamentoTempo.add(agent.esperaPagamento);]]></Code>
 						<RelativeWidth>0.8</RelativeWidth>
 					</Bars>
     			</StackChart>
+    			<TimePlot>
+					<Id>1793122791004</Id>
+					<Name><![CDATA[plot2]]></Name>
+					<X>2080</X><Y>420</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<AutoUpdate>true</AutoUpdate>
+					<RecurrenceProperties>
+						<Id>1793122791002</Id>
+						<OccurrenceAtTime>true</OccurrenceAtTime>
+						<OccurrenceDate>1793174400000</OccurrenceDate>
+						<OccurrenceTime Class="CodeUnitValue">
+							<Code><![CDATA[0]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+						</OccurrenceTime>
+						<RecurrenceCode Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+						</RecurrenceCode>
+					</RecurrenceProperties>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Width>260</Width>
+					<Height>210</Height>
+					<BackgroundColor/>
+					<BorderColor/>
+					<ChartArea>
+						<XOffset>50</XOffset>
+						<YOffset>30</YOffset>
+						<Width>180</Width>
+						<Height>110</Height>
+						<BackgroundColor>-1</BackgroundColor>
+						<BorderColor>-16777216</BorderColor>
+						<GridColor>-12566464</GridColor>
+					</ChartArea>
+					<Legend>
+						<Place>SOUTH</Place>
+						<TextColor>-16777216</TextColor>
+						<Size>40</Size>
+					</Legend>
+					<Labels>
+						<HorLabelsPosition>DEFAULT</HorLabelsPosition>
+						<VerLabelsPosition>DEFAULT</VerLabelsPosition>
+						<TextColor>-12566464</TextColor>
+					</Labels>
+					<ShowLegend>true</ShowLegend>
+					<TimeWindowsMovementType>MOVEMENT_WITH_TIME</TimeWindowsMovementType>		
+					<TimeWindowUnits>MODEL_TIME_UNIT</TimeWindowUnits>
+					<VerScaleFromExpression><![CDATA[0]]></VerScaleFromExpression>
+					<VerScaleToExpression><![CDATA[1]]></VerScaleToExpression>
+					<VerScaleType>AUTO</VerScaleType>
+					<DrawLine>true</DrawLine>
+					<Interpolation>LINEAR</Interpolation>
+					<DatasetExpression>  
+						<Title><![CDATA[Balking%]]></Title>
+					<Id>1793122792552</Id>
+					<Expression><![CDATA[dataset]]></Expression>
+					<Color>-65536</Color>
+					<Expression2><![CDATA[100.0 * nBalking / Math.max(1, nChegadas)]]></Expression2>
+					<Expression2Flag>true</Expression2Flag>
+						<PointStyle>NONE</PointStyle>
+						<LineWidth>1.0</LineWidth>
+					</DatasetExpression>
+					<DatasetExpression>  
+						<Title><![CDATA[Throughput (carros/h)]]></Title>
+					<Id>1793122882808</Id>
+					<Expression><![CDATA[dataset1]]></Expression>
+					<Color>-6632142</Color>
+					<Expression2><![CDATA[nServidos / Math.max(0.001, time(HOUR))]]></Expression2>
+					<Expression2Flag>true</Expression2Flag>
+						<PointStyle>NONE</PointStyle>
+						<LineWidth>1.0</LineWidth>
+					</DatasetExpression>
+					<SamplesToKeep>100</SamplesToKeep>
+					<TimeWindowExpression><![CDATA[100]]></TimeWindowExpression>
+					<FillAreaUnderLine>false</FillAreaUnderLine>
+					<LabelFormat>MODEL_TIME_UNITS</LabelFormat>
+    			</TimePlot>
+    			<TimePlot>
+					<Id>1794780047580</Id>
+					<Name><![CDATA[plot3]]></Name>
+					<X>1820</X><Y>640</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<AutoUpdate>true</AutoUpdate>
+					<RecurrenceProperties>
+						<Id>1794780047578</Id>
+						<OccurrenceAtTime>true</OccurrenceAtTime>
+						<OccurrenceDate>1794816000000</OccurrenceDate>
+						<OccurrenceTime Class="CodeUnitValue">
+							<Code><![CDATA[0]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+						</OccurrenceTime>
+						<RecurrenceCode Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+						</RecurrenceCode>
+					</RecurrenceProperties>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Width>260</Width>
+					<Height>250</Height>
+					<BackgroundColor/>
+					<BorderColor/>
+					<ChartArea>
+						<XOffset>50</XOffset>
+						<YOffset>30</YOffset>
+						<Width>180</Width>
+						<Height>120</Height>
+						<BackgroundColor>-1</BackgroundColor>
+						<BorderColor>-16777216</BorderColor>
+						<GridColor>-12566464</GridColor>
+					</ChartArea>
+					<Legend>
+						<Place>SOUTH</Place>
+						<TextColor>-16777216</TextColor>
+						<Size>60</Size>
+					</Legend>
+					<Labels>
+						<HorLabelsPosition>DEFAULT</HorLabelsPosition>
+						<VerLabelsPosition>DEFAULT</VerLabelsPosition>
+						<TextColor>-12566464</TextColor>
+					</Labels>
+					<ShowLegend>true</ShowLegend>
+					<TimeWindowsMovementType>MOVEMENT_WITH_TIME</TimeWindowsMovementType>		
+					<TimeWindowUnits>MODEL_TIME_UNIT</TimeWindowUnits>
+					<VerScaleFromExpression><![CDATA[0]]></VerScaleFromExpression>
+					<VerScaleToExpression><![CDATA[1]]></VerScaleToExpression>
+					<VerScaleType>AUTO</VerScaleType>
+					<DrawLine>true</DrawLine>
+					<Interpolation>LINEAR</Interpolation>
+					<DatasetExpression>  
+						<Title><![CDATA[Utilização Janelas - Pedido]]></Title>
+					<Id>1794780051077</Id>
+					<Expression><![CDATA[dataset]]></Expression>
+					<Color>-23296</Color>
+					<Expression2><![CDATA[FuncionariosPedido.utilization()]]></Expression2>
+					<Expression2Flag>true</Expression2Flag>
+						<PointStyle>NONE</PointStyle>
+						<LineWidth>1.0</LineWidth>
+					</DatasetExpression>
+					<DatasetExpression>  
+						<Title><![CDATA[Utilização Janela - Pagamento]]></Title>
+					<Id>1794780220491</Id>
+					<Expression><![CDATA[dataset1]]></Expression>
+					<Color>-11179217</Color>
+					<Expression2><![CDATA[FuncionariosPagamento.utilization()]]></Expression2>
+					<Expression2Flag>true</Expression2Flag>
+						<PointStyle>NONE</PointStyle>
+						<LineWidth>1.0</LineWidth>
+					</DatasetExpression>
+					<DatasetExpression>  
+						<Title><![CDATA[Utilização Janela - Recolha]]></Title>
+					<Id>1794780296728</Id>
+					<Expression><![CDATA[dataset2]]></Expression>
+					<Color>-65536</Color>
+					<Expression2><![CDATA[FuncionariosRecolha.utilization()]]></Expression2>
+					<Expression2Flag>true</Expression2Flag>
+						<PointStyle>NONE</PointStyle>
+						<LineWidth>1.0</LineWidth>
+					</DatasetExpression>
+					<SamplesToKeep>100</SamplesToKeep>
+					<TimeWindowExpression><![CDATA[100]]></TimeWindowExpression>
+					<FillAreaUnderLine>false</FillAreaUnderLine>
+					<LabelFormat>MODEL_TIME_UNITS</LabelFormat>
+    			</TimePlot>
+    			<BarChart>
+					<Id>1794783954746</Id>
+					<Name><![CDATA[chart1]]></Name>
+					<X>1800</X><Y>400</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<AutoUpdate>true</AutoUpdate>
+					<RecurrenceProperties>
+						<Id>1794783954744</Id>
+						<OccurrenceAtTime>true</OccurrenceAtTime>
+						<OccurrenceDate>1794816000000</OccurrenceDate>
+						<OccurrenceTime Class="CodeUnitValue">
+							<Code><![CDATA[0]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+						</OccurrenceTime>
+						<RecurrenceCode Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+						</RecurrenceCode>
+					</RecurrenceProperties>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Width>260</Width>
+					<Height>240</Height>
+					<BackgroundColor/>
+					<BorderColor/>
+					<ChartArea>
+						<XOffset>50</XOffset>
+						<YOffset>20</YOffset>
+						<Width>180</Width>
+						<Height>110</Height>
+						<BackgroundColor>-1</BackgroundColor>
+						<BorderColor>-16777216</BorderColor>
+						<GridColor>-12566464</GridColor>
+					</ChartArea>
+					<Legend>
+						<Place>SOUTH</Place>
+						<TextColor>-16777216</TextColor>
+						<Size>80</Size>
+					</Legend>
+					<Labels>
+						<HorLabelsPosition>DEFAULT</HorLabelsPosition>
+						<VerLabelsPosition>DEFAULT</VerLabelsPosition>
+						<TextColor>-12566464</TextColor>
+					</Labels>
+					<ShowLegend>true</ShowLegend>
+					<DataItem>
+					<Id>1794783956969</Id>
+					<Expression><![CDATA[filaPedidosTempo.mean()]]></Expression>
+					<Color>-10496</Color>
+						<Title><![CDATA[Fila Pedidos]]></Title>
+					</DataItem>
+					<DataItem>
+					<Id>1794784155839</Id>
+					<Expression><![CDATA[filaPagamentoTempo.mean()]]></Expression>
+					<Color>-6632142</Color>
+						<Title><![CDATA[Fila Pagamento]]></Title>
+					</DataItem>
+					<DataItem>
+					<Id>1794784165721</Id>
+					<Expression><![CDATA[filaRecolhaTempo.mean()]]></Expression>
+					<Color>-14774017</Color>
+						<Title><![CDATA[Fila Recolha]]></Title>
+					</DataItem>
+					<DataItem>
+					<Id>1794784175630</Id>
+					<Expression><![CDATA[filaTotalTempo.mean()]]></Expression>
+					<Color>-3137392</Color>
+						<Title><![CDATA[Fila Total]]></Title>
+					</DataItem>
+					<ScaleFromExpression><![CDATA[0]]></ScaleFromExpression>
+					<ScaleToExpression><![CDATA[1]]></ScaleToExpression>
+					<ScaleType>AUTO</ScaleType>
+					<Bars>
+						<Direction>UP</Direction>
+						<RelativeWidth>0.8</RelativeWidth>
+					</Bars>
+    			</BarChart>
 			</Presentation>
 
 				</Level>
@@ -9573,7 +9924,7 @@ filaPagamentoTempo.add(agent.esperaPagamento);]]></Code>
 						<UnitType><![CDATA[NONE]]></UnitType>
 						<SdArray>false</SdArray>
 						<DefaultValue Class="CodeValue">
-							<Code><![CDATA[triangular(20, 60, 150)]]></Code>
+							<Code><![CDATA[19 + weibull(41, 1.17)]]></Code>
 						</DefaultValue>
 						<ParameterEditor>
 							<Id>1792849122183</Id>
@@ -9597,7 +9948,7 @@ filaPagamentoTempo.add(agent.esperaPagamento);]]></Code>
 						<UnitType><![CDATA[NONE]]></UnitType>
 						<SdArray>false</SdArray>
 						<DefaultValue Class="CodeValue">
-							<Code><![CDATA[triangular(15, 40, 105)]]></Code>
+							<Code><![CDATA[triangular(7, 23.7, 104)]]></Code>
 						</DefaultValue>
 						<ParameterEditor>
 							<Id>1792849122188</Id>
@@ -9621,7 +9972,7 @@ filaPagamentoTempo.add(agent.esperaPagamento);]]></Code>
 						<UnitType><![CDATA[NONE]]></UnitType>
 						<SdArray>false</SdArray>
 						<DefaultValue Class="CodeValue">
-							<Code><![CDATA[triangular(20, 60, 300)]]></Code>
+							<Code><![CDATA[7 + 91* beta(0.581, 1.2)]]></Code>
 						</DefaultValue>
 						<ParameterEditor>
 							<Id>1792849122192</Id>
@@ -10338,6 +10689,9 @@ filaPagamentoTempo.add(agent.esperaPagamento);]]></Code>
 				</Parameter>
 				<Parameter>
 					<ParameterName><![CDATA[CapacidadeWaitingBay]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[tWarmup]]></ParameterName>
 				</Parameter>
 			</Parameters>
 			<PresentationProperties>
